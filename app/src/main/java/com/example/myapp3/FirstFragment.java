@@ -15,12 +15,15 @@ import com.example.myapp3.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
     private FragmentFirstBinding binding;
+    private View view;
     private TextView showCountTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment with View Binding
         binding = FragmentFirstBinding.inflate(inflater, container, false);
+        view = binding.getRoot();
+        View fragmentFirstLayout = inflater.inflate(R.layout.fragment_first, container, false);
 
         // Initialization of the TextView for counting
         showCountTextView = binding.textviewFirst;

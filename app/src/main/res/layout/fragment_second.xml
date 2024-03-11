@@ -17,8 +17,10 @@
             android:layout_width="158dp"
             android:layout_height="55dp"
             android:text="@string/previous"
-            tools:layout_editor_absoluteX="115dp"
-            tools:layout_editor_absoluteY="640dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textview_header" />
 
         <TextView
             android:id="@+id/textview_header"
