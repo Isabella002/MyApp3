@@ -32,14 +32,29 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Click listener for the Toast button
-        binding.toastButton.setOnClickListener(v -> {
-            Toast myToast = Toast.makeText(getActivity(), "Hello toast!", Toast.LENGTH_SHORT);
-            myToast.show();
+        view.findViewById(R.id.random_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentCount = Integer.parseInt(showCountTextView.getText().toString());
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
+                NavHostFragment.findNavController(FirstFragment.this).navigate(action);
+            }
         });
 
-        // Click listener for the Count button
-        binding.countButton.setOnClickListener(this::countMe);
+        view.findViewById(R.id.toast_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast myToast = Toast.makeText(getActivity(), "Hello toast!", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        });
+
+        view.findViewById(R.id.count_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                countMe(view);
+            }
+        });
     }
 
     private void countMe(View view) {
